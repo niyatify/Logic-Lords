@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatorX — AI Creator Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow glow-1"></div><div class="bg-glow glow-2"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span> Creator<span>X</span></a>
+    <nav>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#ai-studio">AI Studio</a>
+      <a href="#how">How it works</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="ghost-btn" onclick="openModal('loginModal')">Log in</button>
+      <button class="primary-btn" onclick="openModal('joinModal')">Join as Creator</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> The AI-powered creator economy</div>
+        <h1>Find creators.<br><span>Build faster.</span></h1>
+        <p>Discover verified AI creators, hire the right talent, and turn ideas into high-performing content with an intelligent creator marketplace.</p>
+        <div class="hero-actions">
+          <a class="primary-btn large" href="#marketplace">Explore Creators <span>→</span></a>
+          <a class="secondary-btn large" href="#ai-studio">Try AI Studio</a>
+        </div>
+        <div class="trust-row">
+          <div><div class="avatars"><i>AK</i><i>RS</i><i>MJ</i><i>+</i></div><span>2,400+ creators</span></div>
+          <div class="stat"><strong>4.9/5</strong><span>average rating</span></div>
+          <div class="stat"><strong>98%</strong><span>successful matches</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="dashboard-card">
+          <div class="mini-top"><span>AI Match</span><b>98%</b></div>
+          <div class="match-profile">
+            <div class="creator-avatar big">NS</div>
+            <div><h3>Neha Sharma</h3><p>Short-form Video Creator</p><div class="tags"><span>Reels</span><span>UGC</span><span>AI Video</span></div></div>
+          </div>
+          <div class="match-line"><span>Skill match</span><strong>96%</strong></div><div class="bar"><i style="width:96%"></i></div>
+          <div class="match-line"><span>Budget fit</span><strong>92%</strong></div><div class="bar"><i style="width:92%"></i></div>
+          <button class="primary-btn full" onclick="toast('Creator profile opened')">View perfect match →</button>
+        </div>
+        <div class="float-card float-a"><span>⚡</span><div><b>AI Recommended</b><small>3 creators match your brief</small></div></div>
+        <div class="float-card float-b"><span>★</span><div><b>4.9 Creator Rating</b><small>Trusted by 1.2k+ clients</small></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="marketplace">
+      <div class="section-head">
+        <div><div class="eyebrow">DISCOVER TALENT</div><h2>Top creators, <span>matched for you.</span></h2></div>
+        <button class="secondary-btn" onclick="showAll()">View all creators →</button>
+      </div>
+      <div class="search-panel">
+        <div class="search-box">⌕ <input id="searchInput" placeholder="Search creators, skills or services..." oninput="filterCreators()"></div>
+        <select id="categoryFilter" onchange="filterCreators()"><option value="all">All categories</option><option>Video</option><option>Design</option><option>Writing</option><option>Music</option></select>
+        <button class="primary-btn" onclick="smartMatch()">✨ Find my match</button>
+      </div>
+      <div class="creator-grid" id="creatorGrid"></div>
+    </section>
+
+    <section class="ai-section" id="ai-studio">
+      <div class="ai-copy">
+        <div class="eyebrow">AI CREATOR COPILOT</div>
+        <h2>Your creative brief,<br><span>supercharged by AI.</span></h2>
+        <p>Tell us what you want to create. CreatorX turns a rough idea into a structured brief, recommends creators and gives you a launch-ready content direction.</p>
+        <div class="ai-features"><div>✦ Smart brief generation</div><div>✦ Creator matching</div><div>✦ Content strategy</div><div>✦ Platform optimization</div></div>
+      </div>
+      <div class="ai-box">
+        <div class="ai-box-head"><span>✦ CreatorX AI</span><small>ONLINE</small></div>
+        <label>What are you trying to create?</label>
+        <textarea id="aiPrompt" placeholder="e.g. I need 5 Instagram reels for my new streetwear brand..."></textarea>
+        <button class="primary-btn full" onclick="generateAI()">Generate creative brief ✦</button>
+        <div id="aiResult" class="ai-result hidden"></div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="center-head"><div class="eyebrow">SIMPLE BY DESIGN</div><h2>From idea to <span>impact.</span></h2></div>
+      <div class="steps">
+        <div class="step"><b>01</b><div class="step-icon">⌕</div><h3>Describe your vision</h3><p>Tell CreatorX what you need in plain language.</p></div>
+        <div class="step"><b>02</b><div class="step-icon">✦</div><h3>Get AI matches</h3><p>Our matching engine finds creators based on skills, style and budget.</p></div>
+        <div class="step"><b>03</b><div class="step-icon">↗</div><h3>Create & grow</h3><p>Collaborate, publish and measure your content's impact.</p></div>
+      </div>
+    </section>
+
+    <section class="cta"><div><div class="eyebrow">READY TO CREATE?</div><h2>Your next great idea starts here.</h2></div><button class="primary-btn large" onclick="openModal('joinModal')">Join CreatorX →</button></section>
+  </main>
+
+  <footer><div class="brand">✦ Creator<span>X</span></div><p>AI-powered creator marketplace • Hackathon MVP</p><span>© 2026 CreatorX</span></footer>
+
+  <div class="modal hidden" id="loginModal"><div class="modal-card"><button class="close" onclick="closeModal('loginModal')">×</button><div class="eyebrow">WELCOME BACK</div><h2>Log in to CreatorX</h2><input placeholder="Email address"><input placeholder="Password" type="password"><button class="primary-btn full" onclick="toast('Demo login successful');closeModal('loginModal')">Log in</button></div></div>
+  <div class="modal hidden" id="joinModal"><div class="modal-card"><button class="close" onclick="closeModal('joinModal')">×</button><div class="eyebrow">JOIN THE NETWORK</div><h2>Become a creator</h2><input placeholder="Your name"><input placeholder="Email address"><select><option>Creator type</option><option>Video Creator</option><option>Designer</option><option>Writer</option><option>Music Creator</option></select><button class="primary-btn full" onclick="toast('Welcome to CreatorX!');closeModal('joinModal')">Create profile ✦</button></div></div>
+  <div id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
